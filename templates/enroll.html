@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursga jaziliw</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="enroll-container">
+        <div class="enroll-card">
+            <h2>{{ course_title }} kursina jaziliw</h2>
+            <p class="form-description">Magliwmatlarinizdi qaldirin, biz siz benen baylanisamiz.</p>
+
+            <form action="/submit" method="POST" class="enroll-form">
+                <input type="hidden" name="course_title" value="{{ course_title }}">
+
+                <div class="input-group">
+                    <label for="name">Atiniz</label>
+                    <input type="text" id="name" name="name" placeholder="Maselen: Azizbek" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Telefon nomeriniz</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+998 90 123 45 67" required>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Jiberiw</button>
+            </form>
+
+            <div class="back-link">
+                <a href="/">← Artqa qaytiw</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

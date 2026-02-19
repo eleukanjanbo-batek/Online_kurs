@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IT-Academy | Kurslar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Keleshekti biz benen quriń</h1>
+        <p>Zamanagóy IT kásiplerin nolden úyreniń</p>
+    </header>
+
+    <div class="container">
+        {% for course in courses %}
+        <div class="card">
+            <div>
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+            </div>
+            <div>
+                <div class="price">{{ course.price }}</div>
+                <a href="/enroll/{{ course.id }}" class="btn">Kursqa jazılıw</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
