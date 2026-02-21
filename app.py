@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from models import courses_list  # Models faylidan ro'yxatni chaqiramiz
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 # Ma'lumotlar bazasi sozlamalari
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///online_kurs.db'
