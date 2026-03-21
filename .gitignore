@@ -1,102 +1,29 @@
-# =========================
-# OS FILES
-# =========================
-.DS_Store
-Thumbs.db
-
-# =========================
-# IDE (PyCharm / VSCode)
-# =========================
-.idea/
-.vscode/
-*.iml
-
-# =========================
-# ENV FILES (SECRET!)
-# =========================
-.env
-.env.*
-!.env.example
-
-# =========================
-# NODE.JS / FRONTEND
-# =========================
-node_modules/
-dist/
-build/
-.next/
-out/
-.cache/
-.parcel-cache/
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# =========================
-# PYTHON / BACKEND
-# =========================
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environment
+# --- Python va Virtual Muhit ---
 venv/
 env/
-.venv/
+ENV/
+bin/
+lib/
+include/
+share/
+*.pyc
+__pycache__/
 
-# Django / Flask
-db.sqlite3
+# --- Maxfiy ma'lumotlar (Bularni aslo GitHubga yuklamang) ---
+.env
+.flaskenv
+
+# --- Ma'lumotlar bazasi (SQLite) ---
+*.db
 *.sqlite3
 instance/
-.webassets-cache
 
-# =========================
-# STATIC & MEDIA (OPTIONAL)
-# =========================
-staticfiles/
-media/
-
-# =========================
-# TEST / COVERAGE
-# =========================
-.coverage
-htmlcov/
-.pytest_cache/
-
-# =========================
-# BUILD FILES
-# =========================
-*.egg-info/
-.eggs/
-build/
-develop-eggs/
-downloads/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-
-# =========================
-# LOGS
-# =========================
-*.log
-
-# =========================
-# TEMP FILES
-# =========================
-*.tmp
+# --- Dasturlash muhiti (IDE) sozlamalari ---
+.idea/
+.vscode/
 *.swp
+*.swo
 
-# =========================
-# CACHE
-# =========================
-.cache/
-.env
-instance/
-*.db
-venv/
-__pycache__/
+# --- Operatsion tizim fayllari ---
+.DS_Store
+Thumbs.db
