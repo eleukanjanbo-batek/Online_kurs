@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
     <meta charset="UTF-8">
-    <title>Siz kursga jazildiniz</title>
+    <title>Áwmetli!</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
-<body>
-    <div class="container">
-        <div class="card" style="text-align: center;">
-            <h1 style="color: #27ae60;">Qutliqlaymiz, {{ name }}!</h1>
-            <p>Sizdin sorawiniz qabil qilindi. Tez arada operatorlarimiz baylanisadi.</p>
-            <br>
-            <a href="/" class="btn">Bas betke qaytiw</a>
-        </div>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #f0fdf4;">
+    <div class="card" style="text-align: center; max-width: 450px;">
+        <i class="fas fa-check-circle" style="font-size: 4rem; color: #22c55e; margin-bottom: 20px;"></i>
+        <h1 style="margin-bottom: 15px;">Rahmet, {{ name }}!</h1>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Sizdiń sorawıńız qabıllandı. Tez arada operatorlarımız baylanısqa shıǵadı.</p>
+        <a href="/" class="btn" style="background: #22c55e;">Bas betke qaytıw</a>
     </div>
 </body>
-
 </html>

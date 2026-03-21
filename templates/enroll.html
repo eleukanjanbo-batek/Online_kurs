@@ -1,41 +1,22 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kursga jaziliw</title>
+    <title>Jazılıw | {{ course.title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
-<body>
-    <div class="enroll-container">
-        <div class="enroll-card">
-            <h2>{{ course_title }} kursina jaziliw</h2>
-            <p class="form-description">Magliwmatlarinizdi qaldirin, biz siz benen baylanisamiz.</p>
-
-            <form action="/submit" method="POST" class="enroll-form">
-                <input type="hidden" name="course_title" value="{{ course_title }}">
-
-                <div class="input-group">
-                    <label for="name">Atiniz</label>
-                    <input type="text" id="name" name="name" placeholder="Maselen: Azizbek" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="phone">Telefon nomeriniz</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+998 90 123 45 67" required>
-                </div>
-
-                <button type="submit" class="btn btn-submit">Jiberiw</button>
-            </form>
-
-            <div class="back-link">
-                <a href="/">← Artqa qaytiw</a>
-            </div>
-        </div>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+    <div class="card" style="max-width: 450px; width: 100%;">
+        <h2 style="text-align: center; margin-bottom: 10px;">{{ course.title }}</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Kursqa jazılıw ushın maǵlıwmatlardı toldırıń</p>
+        
+        <form action="/submit" method="POST">
+            <input type="hidden" name="course_id" value="{{ course.id }}">
+            <input type="text" name="name" class="form-input" placeholder="Atińiz" required>
+            <input type="tel" name="phone" class="form-input" placeholder="Telefon (Maselen: +998 90...)" required>
+            <button type="submit" class="btn">Jiberiw</button>
+        </form>
+        <a href="/" style="display: block; text-align: center; margin-top: 20px; text-decoration: none; color: var(--text-muted);">← Artqa qaytıw</a>
     </div>
 </body>
-
 </html>

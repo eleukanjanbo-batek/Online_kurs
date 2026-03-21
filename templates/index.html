@@ -3,31 +3,61 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT-Academy | Kurslar</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <h1>Keleshekti biz benen quriń</h1>
-        <p>Zamanagóy IT kásiplerin nolden úyreniń</p>
-    </header>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+        <header style="text-align: center; margin-bottom: 60px;">
+            <h1 style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;">Keleshekti biz benen quriń</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted);">Zamanagóy IT kásiplerin nolden úyreniń</p>
+        </header>
 
-    <div class="container">
-        {% for course in courses %}
-        <div class="card">
-            <div>
-                <h2>{{ course.title }}</h2>
-                <p>{{ course.description }}</p>
+        <div class="grid-container">
+            {% for course in courses %}
+            <div class="card">
+                <h2 style="margin-bottom: 15px;">{{ course.title }}</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px; min-height: 60px;">{{ course.description }}</p>
+                <div style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px;">{{
+                    course.price }}</div>
+                <a href="{{ url_for('enroll', id=course.id) }}" class="btn">Kursqa jazılıw</a>
             </div>
-            <div>
-                <div class="price">{{ course.price }}</div>
-                <a href="/enroll/{{ course.id }}" class="btn">Kursqa jazılıw</a>
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+
+            const observerOptions = {
+                threshold: 0.1 // 10% qismi ko'ringanda ishga tushadi
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Har bir kurs orasida 100ms farq bilan paydo bo'ladi
+                        setTimeout(() => {
+                            entry.target.classList.add('show');
+                        }, index * 100);
+                        observer.unobserve(entry.target); // Bir marta ko'ringach kuzatishni to'xtatadi
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+    <footer style="text-align: center; padding: 40px 20px; margin-top: 60px; border-top: 1px solid #e2e8f0;">
+        <p style="color: var(--text-muted);">&copy; 2024 IT-Academy. Barcha huquqlar himoyalangan.</p>
+        <a href="/admin"
+            style="text-decoration: none; color: #cbd5e1; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Admin
+            paneli</a>
+    </footer>
 </body>
 
 </html>

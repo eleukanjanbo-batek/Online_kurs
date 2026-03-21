@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Profil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="admin-body">
+    <div class="sidebar">
+        <h2 style="color: var(--primary); margin-bottom: 40px;">IT Academy</h2>
+        <a href="/admin" class="nav-link"><i class="fas fa-layer-group"></i> Kurslar</a>
+        <a href="/admin/arizalar" class="nav-link"><i class="fas fa-user-friends"></i> Arzalar</a>
+        <a href="/admin/profile" class="nav-link active"><i class="fas fa-user-circle"></i> Profil</a>
+        <a href="/logout" class="nav-link" style="margin-top: auto; color: #ef4444;"><i class="fas fa-sign-out-alt"></i>
+            Shıǵıw</a>
+    </div>
+
+    <div class="main-content">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="margin-bottom: 25px;">Profildi ózgertiw</h2>
+            <form action="/admin/profile" method="POST">
+                <label style="display: block; margin-bottom: 8px;">Tolıq atı-familiyası</label>
+                <input type="text" name="full_name" value="{{ admin_info.full_name }}" class="form-input" required>
+                <label style="display: block; margin-bottom: 8px;">Bio (Ózińiz haqqında)</label>
+                <textarea name="bio" class="form-input" rows="5">{{ admin_info.bio }}</textarea>
+
+                <label style="display: block; margin-top: 15px; margin-bottom: 8px;">Yangi parol (o'zgartirmaslik uchun
+                    bo'sh qoldiring)</label>
+                <input type="password" name="new_password" class="form-input" placeholder="Yangi parol">
+
+                <button type="submit" class="btn">Saqlaw</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
