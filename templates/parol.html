@@ -2,12 +2,12 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Kirish | Admin Panel</title>
+    <title>Kiriw | Admin Panel</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg);">
     <div class="card" style="max-width: 400px; width: 100%; text-align: center;">
-        <h2 style="margin-bottom: 20px; color: var(--primary);">Admin Kirish</h2>
+        <h2 style="margin-bottom: 20px; color: var(--primary);">Admin Kiriw</h2>
         
         {% if error %}
             <p style="color: #ef4444; margin-bottom: 15px; font-size: 0.9rem;">{{ error }}</p>
@@ -15,9 +15,9 @@
 
         <form action="/login" method="POST">
             <input type="password" name="password" class="form-input" placeholder="Parolni kiriting" required autofocus>
-            <button type="submit" class="btn">Kirish</button>
+            <button type="submit" class="btn">Kiriw</button>
         </form>
-        <a href="/" style="display: block; margin-top: 20px; text-decoration: none; color: var(--text-muted);">← Saytga qaytish</a>
+        <a href="/" style="display: block; margin-top: 20px; text-decoration: none; color: var(--text-muted);">← Saytga qaytiw</a>
     </div>
 </body>
 </html>
