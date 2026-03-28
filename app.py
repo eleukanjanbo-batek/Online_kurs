@@ -10,11 +10,7 @@ app = Flask(__name__)
 
 # 1. Baza va papkalarni sozlash
 basedir = os.path.abspath(os.path.dirname(__file__))
-instance_path = os.path.join(basedir, 'instance')
-if not os.path.exists(instance_path):
-    os.makedirs(instance_path)
-
-db_path = os.path.join(instance_path, 'online_kurs.db')
+db_path = os.path.join(basedir, 'online_kurs.db')
 
 # 2. Flask sozlamalari
 app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
