@@ -8,17 +8,26 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Render'dagi Settings -> Environment qismidan oladi
-app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
-
-# 🔥 SHU JOY O‘ZGARTIRILDI (absolute path)
+# 1. Baza yo'lini va papkani sozlash (SHU YERGA QO'SHING)
 basedir = os.path.abspath(os.path.dirname(__file__))
-db_path = os.path.join(basedir, 'instance', 'online_kurs.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
+instance_path = os.path.join(basedir, 'instance')
 
+# Agar instance papkasi bo'lmasa, uni yaratish
+if not os.path.exists(instance_path):
+    os.makedirs(instance_path)
+
+db_path = os.path.join(instance_path, 'online_kurs.db')
+
+# 2. Flask sozlamalari
+app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# 3. DB obyektini yaratish
 db = SQLAlchemy(app)
+
+# --- MODELLAR (Course, Application, AdminProfile...) ---
+# ... (Sizning modellaringiz)
 
 
 # --- MODELLAR (O'zgarishsiz qoladi) ---
